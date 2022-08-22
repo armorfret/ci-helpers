@@ -5,15 +5,14 @@ set -exuo pipefail
 PROVIDER_NAME="$1"
 PROVIDER_CHECKSUM="$2"
 
-PROVIDER_VERSION="$(grep -A3 "provider \"${PROVIDER_NAME}\"" main.tf | awk '/version/ {print $3}' | sed 's/"//g')"
-
 OS="linux"
 ARCH="${OS}_amd64"
 
-PLUGIN_DIR="${HOME}/.terraform.d/plugins/${ARCH}"
-PLUGIN_PATH="${PLUGIN_DIR}/terraform-provider-${PROVIDER_NAME}_v${PROVIDER_VERSION}"
+PROVIDER_VERSION="$(terraform providers | awk "/provider\[terraform.scrtybybscrty.org\/armorfret\/${PLUGIN_NAME}\]/ { print \$3 ; exit}")"
+PROVIDER_URL="https://github.com/armorfret/terraform-provider-${PROVIDER_NAME}/releases/download/v${PROVIDER_VERSION}/terraform-provider-${PROVIDER_NAME}_${OS}"
 
-PROVIDER_URL="https://github.com/akerl/terraform-provider-${PROVIDER_NAME}/releases/download/v${PROVIDER_VERSION}/terraform-provider-${PROVIDER_NAME}_${OS}"
+PLUGIN_DIR="${HOME}/.terraform.d/plugins/terraform.scrtybybscrty.org/armorfret/${PROVIDER_NAME}/${VERSION}/${ARCH}"
+PLUGIN_PATH="${PLUGIN_DIR}/terraform-provider-${PROVIDER_NAME}_v${PROVIDER_VERSION}_x5"
 
 mkdir -p "${PLUGIN_DIR}"
 
