@@ -3,6 +3,7 @@
 set -exuo pipefail
 
 TERRAFORM_VERSION="$1"
+TFBIN_DIR="${HOME}/tfbin"
 
 ARCH="linux_amd64"
 
