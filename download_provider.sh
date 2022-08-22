@@ -11,7 +11,7 @@ PROVIDER_VERSION="$(grep -A1 "source  = \"terraform.scrtybybscrty.org/armorfret/
 PROVIDER_URL="https://github.com/armorfret/terraform-provider-${PROVIDER_NAME}/releases/download/v${PROVIDER_VERSION}/terraform-provider-${PROVIDER_NAME}_${ARCH}"
 
 PLUGIN_DIR="${HOME}/.terraform.d/plugins/terraform.scrtybybscrty.org/armorfret/${PROVIDER_NAME}/${PROVIDER_VERSION}/${ARCH}"
-PLUGIN_PATH="${PLUGIN_DIR}/terraform-provider-${PROVIDER_NAME}_v${PROVIDER_VERSION}_x5"
+PLUGIN_PATH="${PLUGIN_DIR}/terraform-provider-${PROVIDER_NAME}_v${PROVIDER_VERSION}"
 
 mkdir -p "${PLUGIN_DIR}"
 
