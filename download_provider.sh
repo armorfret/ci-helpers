@@ -8,7 +8,7 @@ PROVIDER_CHECKSUM="$2"
 OS="linux"
 ARCH="${OS}_amd64"
 
-PROVIDER_VERSION="$(grep -A1 "source  = \"terraform.scrtybybscrty.org/armorfret/${PLUGIN_NAME}\"" main.tf | awk '/version =/ { print $3 }' | sed 's/"//g')"
+PROVIDER_VERSION="$(grep -A1 "source  = \"terraform.scrtybybscrty.org/armorfret/${PROVIDER_NAME}\"" main.tf | awk '/version =/ { print $3 }' | sed 's/"//g')"
 PROVIDER_URL="https://github.com/armorfret/terraform-provider-${PROVIDER_NAME}/releases/download/v${PROVIDER_VERSION}/terraform-provider-${PROVIDER_NAME}_${OS}"
 
 PLUGIN_DIR="${HOME}/.terraform.d/plugins/terraform.scrtybybscrty.org/armorfret/${PROVIDER_NAME}/${VERSION}/${ARCH}"
